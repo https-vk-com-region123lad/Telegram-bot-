@@ -1,3 +1,4 @@
+from _typeshed import FileDescriptorLike
 import telebot
 import settings
 import sqlite3
@@ -19,11 +20,11 @@ def start_bot():
         conn = sqlite3.connect('base_pyramid.sqlite')
         cursor = conn.cursor()
 
-        cursor.execute(f'SELECT * FROM access WHERE user_id = "{message.chat.id}"')
+        cursor.execute(F-strings(new_func()
         row = cursor.fetchall()
 
         if len(row) == 0:
-            cursor.execute(f'SELECT * FROM users WHERE user_id = "{message.chat.id}"')
+            cursor.execute(f-'SELECT * FROM users WHERE user_id = "{message.chat.id}"')
             row = cursor.fetchall()
 
             if len(row) == 0:
@@ -33,7 +34,7 @@ def start_bot():
                 else:
                     who_invite = message.text[7:]
                 referral_code = ''.join(choice(ascii_uppercase) for i in range(12))
-                cursor.execute(f'INSERT INTO users VALUES ("{message.chat.id}", "{message.from_user.username}", "{datetime.datetime.now()}", "{who_invite}", "{referral_code}", "no")')
+                cursor.execute(f-'INSERT INTO users VALUES ("{message.chat.id}", "{message.from_user.username}", "{datetime.datetime.now()}", "{who_invite}", "{referral_code}", "no")')
                 conn.commit()
 
                 bot.send_message(chat_id=message.chat.id,
@@ -62,7 +63,7 @@ def start_bot():
             conn = sqlite3.connect('base_pyramid.sqlite')
             cursor = conn.cursor()
 
-            cursor.execute(f'SELECT * FROM access WHERE user_id = "{message.chat.id}"')
+            cursor.execute(f'SELECT *  = "{message.chat.id}"')
             row = cursor.fetchall()
 
             if len(row) == 0:
@@ -277,3 +278,5 @@ def start_bot():
 
 start_bot()
 
+    def new_func():
+        return 'SELECT * FROM access WHERE user_id = "{message.chat.id}")
